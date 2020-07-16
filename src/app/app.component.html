@@ -1,0 +1,33 @@
+
+<html>
+  <head>
+
+  </head>
+  <body>
+
+      <form>
+          <div class="form-group">
+            <label for="imeSobe">Ime sobe</label>
+            <input type="text" class="form-control" ngModel name="imeSobe" #imeSobe="ngModel" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="cenaSobe">Cena sobe</label>
+            <input type="text" class="form-control" ngModel name="cenaSobe" #cenaSobe="ngModel" required>
+          </div>
+    
+          <button type="submit" class="btn btn-success" (click)="add(imeSobe.value,cenaSobe.value)">Dodaj</button>
+    
+        </form>
+
+       <p>Lista soba : </p>
+        <ul class="list-group">
+            <li *ngFor="let soba of sobe" class="list-group-item">
+                {{ soba.ime | filter }} ------- Cena:{{ soba.cena | filter }} 
+            </li>
+        </ul>
+
+        <button type="button" class="btn btn-warning" (click)="randomize()">Sortiraj Nasumicno</button>
+
+  </body>
+</html>
